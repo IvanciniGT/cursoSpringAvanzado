@@ -5,59 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.curso.animalitos</groupId>
-    <artifactId>animalitos-entidades</artifactId>
+    <artifactId>animalitos</artifactId>
     <version>1.0.0</version>
-    <name>Módulo de Entidades de los Animalitos</name>
+    <packaging>pom</packaging>
+    <name>Módulo de Animalitos</name>
+    <modules>
+        <module>animalitos.servicio</module>
+        <module>animalitos.entidades</module>
+    </modules>
 
-    <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
-    <dependencies>
-        <!-- Spring Core + MVC para montar apps web (incluyendo servicios web) + un Tomcat embebido -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <version>2.5.4</version>
-        </dependency>
-        <!-- Me incluye hibernate y me permite gestionar la persistencia -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.5.4</version>
-        </dependency>
-        <!-- Me incluye junit, mockito, y el propio framework de pruebas de spring -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <version>2.5.4</version>
-            <scope>test</scope>
-        </dependency>
-        <!-- Lombok: Anotaciones que me ahorran tiempo y trabajo: Getter Setters Data -->
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <version>1.18.26</version>
-            <scope>compile</scope>
-        </dependency>
-        <!--
-            Una BBDD que vamos a arrancar para pruebas, con persistencia en memoria
-            e integración directa con Spring. Sporing, si detecta esta BBDD en el classpath y además ve  que no he configurado ninguna BBDD, usa esta.
-            La arranca, mete ahí un usuario y una contraseña, y me da una URL para conectarme.
-         -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
-            <version>2.1.214</version>
-            <scope>test</scope>
-        </dependency>
-
-    </dependencies>
-
-    <build>
-        <plugins>
-        </plugins>
-    </build>
 </project>

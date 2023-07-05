@@ -199,3 +199,9 @@ Es una herramienta para automatizar tareas básicas y repetitivas de mis proyect
 - ejecutar las pruebas
 - mandarlo a sonarqube
 - gestionar las dependencias
+
+---
+module 
+    package
+        class
+        interface
