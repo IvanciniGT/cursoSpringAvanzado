@@ -5,6 +5,8 @@ import com.curso.animalitos.servicio.dtos.DatosAnimalitoDTO;
 import com.curso.animalitos.servicio.dtos.DatosNuevoAnimalitoDTO;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 // Esto hace que si alguien pide un AnimalitosServicio,
 // Spring le entregue una instancia de esta clase..
@@ -18,7 +20,7 @@ public class AnimalitosServicioImpl implements AnimalitosServicio {
     }
 
     @Override
-    public DatosAnimalitoDTO recuperarAnimalito(Long id) {
+    public Optional<DatosAnimalitoDTO> recuperarAnimalito(Long id) {
         return null;
     }
 }
