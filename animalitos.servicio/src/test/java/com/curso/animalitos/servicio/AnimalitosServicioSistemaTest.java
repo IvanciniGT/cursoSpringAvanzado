@@ -28,18 +28,35 @@ public class AnimalitosServicioSistemaTest {
 
     @Test
     public void altaAnimalitoConDatosOK(){
+        // Preparacion de los datos
         DatosNuevoAnimalitoDTO nuevosDatos = new DatosNuevoAnimalitoDTO();
         nuevosDatos.setNombre("Pepito");
         nuevosDatos.setTipo("Perro");
         nuevosDatos.setColor("Marrón");
         nuevosDatos.setEdad(3);
+        // Acciones
         DatosAnimalitoDTO nuevoAnimalito = servicioDeAnimalitos.altaAnimalito(nuevosDatos);
+        // Verificaciones
+        // Verifico la respuesta del servicio
         Assertions.assertNotNull(nuevoAnimalito.getId());
         Assertions.assertEquals("Pepito", nuevoAnimalito.getNombre());
         Assertions.assertEquals("Perro", nuevoAnimalito.getTipo());
         Assertions.assertEquals("Marrón", nuevoAnimalito.getColor());
         Assertions.assertEquals(3, nuevoAnimalito.getEdad());
-    }
+
+
+        // Verifico que el animalito se haya guardado en el repositorio
+        // Aqui no pruebo el repositorio.... eso lo probé en el otro proyecto.
+        // Esto es la prueba de integración: Está llamando el servicio al Repositorio???
+        Animalito animalitoPersistido = repositorioDeAnimalitos.getById(nuevoAnimalito.getId());
+        Assertions.assertNotNull(animalitoPersistido);
+        Assertions.assertEquals("Pepito", animalitoPersistido.getNombre());
+        Assertions.assertEquals("Perro", animalitoPersistido.getTipo());
+        Assertions.assertEquals("Marrón", animalitoPersistido.getColor());
+        Assertions.assertEquals(3, animalitoPersistido.getEdad());
+
+        // Me tocaría crear un cliente pop3 o imap, conectar con esa cuenta de email... y verificar que se recibe el email
+    }// BDD > TDD
 
     @Test
     public void altaAnimalitoSinNombre(){

@@ -20,6 +20,11 @@
             <artifactId>animalitos-entidades</artifactId>
             <version>1.0.0</version>
         </dependency>
+        <dependency>
+            <groupId>com.curso.animalitos</groupId>
+            <artifactId>emails-servicio</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- Spring Core + MVC para montar apps web (incluyendo servicios web) + un Tomcat embebido -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

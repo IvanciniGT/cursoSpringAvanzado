@@ -205,3 +205,19 @@ module
     package
         class
         interface
+
+
+            x
+Servicio -----> Repositorio
+  √                 √
+
+√ Pruebas unitarias al Repositorio
+    Estas pruebas me garantizan que el repo funciona de forma aislada... Él hace lo que tiene que hacer
+
+x Pruebas unitarias al Servicio
+    Aún no las hemos hecho... pero en cualquier caso, lo que garantizarán es que:
+    El servicio hace lo que debe.
+
+√ Pruebas de integración que prueban la comunicación entre el servicio y el repo.
+
+

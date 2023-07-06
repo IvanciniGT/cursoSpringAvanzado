@@ -12,6 +12,7 @@
     <modules>
         <module>animalitos.servicio</module>
         <module>animalitos.entidades</module>
+        <module>emails.servicio</module>
     </modules>
 
 </project>
