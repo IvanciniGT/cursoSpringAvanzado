@@ -1,5 +1,9 @@
 package com.curso.animalitos.servicio.impl;
 
+import com.curso.animalitos.entidades.Animalito;
+import com.curso.animalitos.entidades.RepositorioAnimalitos;
+import com.curso.animalitos.servicio.mappers.AnimalitosDTOMapper;
+import com.curso.animalitos.servicio.mappers.AnimalitosMapper;
 import com.curso.animalitos.servicio.AnimalitosServicio;
 import com.curso.animalitos.servicio.dtos.DatosAnimalitoDTO;
 import com.curso.animalitos.servicio.dtos.DatosNuevoAnimalitoDTO;
@@ -17,21 +21,32 @@ import java.util.Optional;
 public class AnimalitosServicioImpl implements AnimalitosServicio {
 
     private final EmailsServicio emailsServicio;
+    private final RepositorioAnimalitos repositorioAnimalitos;
+    private final AnimalitosDTOMapper mapeador;
 
-    public AnimalitosServicioImpl(EmailsServicio emailsServicio) {
+    public AnimalitosServicioImpl(AnimalitosDTOMapper mapeador, RepositorioAnimalitos repositorioAnimalitos,EmailsServicio emailsServicio) {
         this.emailsServicio = emailsServicio;
+        this.repositorioAnimalitos=repositorioAnimalitos;
+        this.mapeador = mapeador;
     }
 
     @Override
-    public DatosAnimalitoDTO altaAnimalito(DatosNuevoAnimalitoDTO datosNuevoAnimalitoDTO) {
+    public DatosAnimalitoDTO altaAnimalito( DatosNuevoAnimalitoDTO datosNuevoAnimalitoDTO) {
+        Animalito nuevoAnimalito = mapeador.datosNuevoAnimalito2Animalito(datosNuevoAnimalitoDTO);
+
         // Llamar al repo para que se guarde el dato (animalito)
-        //
+        Animalito nuevoAnimalitoPersistido = repositorioAnimalitos.save(nuevoAnimalito);
+
+        // Voy a obtener de vuelta los datos del repo (id)
         // Llamar al que envía los emails
         emailsServicio.enviarEmail("subscriptores@animalitos.fermin.com","Nuevo animalito",
                 "Amigo, tenemos un nuevo animalito en la tienda: "+ datosNuevoAnimalitoDTO.getNombre()+". Es muy mono. vente a por él");
-        // MAS CODIGO
-        return null;
+
+        // Devolveré el resultado (DatosAnimalitoDTO)
+        DatosAnimalitoDTO datosAnimalitoDTO = AnimalitosMapper.animalito2DatosAnimalito(nuevoAnimalitoPersistido);
+        return datosAnimalitoDTO;
     }
+
 
     @Override
     public Optional<DatosAnimalitoDTO> recuperarAnimalito(Long id) {

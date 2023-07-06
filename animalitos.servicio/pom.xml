@@ -51,6 +51,12 @@
             <version>1.18.26</version>
             <scope>compile</scope>
         </dependency>
+        <!-- Mapeos automáticos entre DTOs y Entidades -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>1.5.5.Final</version>
+        </dependency>
         <!--
             Una BBDD que vamos a arrancar para pruebas, con persistencia en memoria
             e integración directa con Spring. Sporing, si detecta esta BBDD en el classpath y además ve  que no he configurado ninguna BBDD, usa esta.
@@ -63,7 +69,6 @@
             <scope>test</scope>
         </dependency>
 
-
     </dependencies>
 
     <build>
@@ -75,6 +80,37 @@
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.1.2</version>
             </plugin>
+            <!-- Configuramos el plugin de compilación, ya que hay problemas entre lombok y mapstruct
+                 Para que mapstruct sea capaz de funcionar, los setter y los getter ya deben estar creados... y eso lo hace lombok
+                 Hay que asegurar que lombok se ejecuta primero.
+                 Eso es lo que hace otra dependencia que estamos metiendo aquí, que es:lombok-mapstruct-binding
+             -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>1.5.5.Final</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>1.18.26</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+
+
         </plugins>
     </build>
 </project>
