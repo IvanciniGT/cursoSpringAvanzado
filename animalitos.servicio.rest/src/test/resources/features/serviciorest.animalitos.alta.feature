@@ -25,7 +25,6 @@ Característica: Servicio REST de Alta de animalitos v1
             #Y ese registro debe tener por "tipo": "<tipo>"
             #Y ese registro debe tener por "color": "<color>"
 
-
         Ejemplos:
 
         | nombre  | edad | tipo  | color   |
