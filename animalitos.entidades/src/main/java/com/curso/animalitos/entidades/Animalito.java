@@ -26,3 +26,5 @@ public class Animalito {
     @Column(updatable = true, nullable = true)
     private Integer edad;
 }
+
+// Ahora le quiero quitar algunos campos y poner otros

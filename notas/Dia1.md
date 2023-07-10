@@ -519,18 +519,18 @@ Quiero entregar cada mes.
 
 Sistema para la tienda de animalitos Fermin!
 
-BBDD de animalitos      Programas que operen                                                    Frontal Web (Angular)  [Trabaja con v1.0.0 del alta de animalitos]
+BBDD de animalitos      Programas que operen                                                    Frontal Web (Angular)  [Trabaja con v2.0.0 del alta de animalitos]
                         sobre esa BBDD de animalitos                                            Frontal Móvil (Android)  [v2.0.0]
-                                                                                                Front Movil (IOS) [v1.0.0]
-                        Busqueda de animalitos <<< API                                          Frontal De escritorio (empleados de la tienda) [v1.1.0]
-                                                                                                Frontal Sistema de Voz Interactivo [v1.0.0]
-                        Alta de animalitos  <<< API Web                                         Frontal Sistema de Reconocimiento de Voz (Siri, Alexa, Ok Google) [v1.1.0]
-                            v1.1.0
+                                                                                                Front Movil (IOS) [v2.0.0]
+                        Busqueda de animalitos <<< API                                          Frontal De escritorio (empleados de la tienda) [v2.1.0]
+                                                                                                Frontal Sistema de Voz Interactivo [v2.0.0]
+                        Alta de animalitos  <<< API Web                                         Frontal Sistema de Reconocimiento de Voz (Siri, Alexa, Ok Google) [v2.1.0]
+                            v2.1.0
                                 nombre, tipo, color, edad, peso (opcional)
                             v2:
                                 name, type, color, age, pics
 
-v1 o v2? A qué me refiero? MAJOR !
+v2 o v2? A qué me refiero? MAJOR !
 
 ---
 
@@ -571,7 +571,7 @@ Controlador del servicio de animalitos   JAVA (HTTP REST) @RestController
     o mediante un API SOAP
     o mediante un API Remote Procedure Call RPC
     o que se invoque desde java
-    o que quiera exponerlo mediante HTTP Rest de 2 formas diferentes (v1, v2)
+    o que quiera exponerlo mediante HTTP Rest de 2 formas diferentes (v2, v2)
 ...
 
     LOGICA                                                      DATOS

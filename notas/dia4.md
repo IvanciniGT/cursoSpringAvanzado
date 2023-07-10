@@ -24,18 +24,18 @@ Otras APIS o componente WEB
 
 Componente Web con Angular
 
-DatosDeEntrada          v1
+DatosDeEntrada          v2
     nombre 
     apellidos
     edad
 
-DatosInternos que él maneja     v1
+DatosInternos que él maneja     v2
     nombre < nombre + " " + apellidos
     edad
 
 ---
 
-v1
+v2
     nombre
 v2
     nombre 

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.curso.animalitos</groupId>
+    <artifactId>aplicacion</artifactId>
+    <version>1.0.0</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <!-- Este sería el sitio donde añadir todos los servicios que quiero exponer juntos... si me interesa-->
+        <!-- Cambiar repositorios-->
+        <!-- Decir con que servicio de emails quiero operar...-->
+        <!-- Para hacer esto bien, debería haber creado otros 2 proyectos más:
+        Con las APIs (interfaces) del servicio y de la exposición del servicio via rest -->
+        <dependency>
+            <groupId>com.curso.animalitos</groupId>
+            <artifactId>animalitos-servicio-rest</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- Spring Core + MVC para montar apps web (incluyendo servicios web) + un Tomcat embebido -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>2.5.4</version>
+        </dependency>
+        <!-- El DRIVER DE LA BBDD que quiera usar: MariaDB, Oracle, DB2-->
+        <!-- Este es el tomcat que se arranca, que necesita un driver.. según se defina en el dfichero application.yaml -->
+    </dependencies>
+
+</project>

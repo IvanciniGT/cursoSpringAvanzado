@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <!-- Este se debería cambiar automaticamente por:
      - Git hook (Si git es quien controla las versiones... que las controle)
-        Quiero una única fuente de verdad en el proyecto (TAGs) v1.0.0
+        Quiero una única fuente de verdad en el proyecto (TAGs) v2.0.0
         Git irá generando versiones por ramas:
             1.0.0-dev
             1.0.0-rc1

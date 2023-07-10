@@ -1,0 +1,7 @@
+# Aqui metería la configuración de la base de datos, por ejemplo
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/curso_springboot
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
