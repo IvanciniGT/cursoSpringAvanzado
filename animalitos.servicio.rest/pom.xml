@@ -63,6 +63,25 @@
             <version>2.1.214</version>
             <scope>test</scope>
         </dependency>
+        <!-- Librería Platform de Junit, que permite delegar pruebas a otros motores de ejecución de pruebas -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.9.3</version>
+            <scope>test</scope>
+        </dependency>
+        <!--
+            Junit -> Platform suite ->  Cucumber platform suite ->             Cucumber
+        -->
+        <!-- Esta permite a cucumber integrarse dentro del platform suite de junit -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>7.13.0</version>
+            <scope>test</scope>
+        </dependency>
+
+
 
         <!-- Dependencias para poder usar cucumber -->
         <!-- Propio cucumber -->
@@ -71,6 +90,12 @@
             <artifactId>cucumber-java</artifactId>
             <version>7.13.0</version>
             <scope>test</scope>
+        </dependency>
+        <!-- Me deja que cucumber y spring se lleven bien -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-spring</artifactId>
+            <version>7.13.0</version>
         </dependency>
 
     </dependencies>
