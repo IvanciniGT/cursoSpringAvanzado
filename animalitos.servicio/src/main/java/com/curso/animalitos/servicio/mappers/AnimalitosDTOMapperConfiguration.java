@@ -6,7 +6,6 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AnimalitosDTOMapperConfiguration {
-
     @Bean
     AnimalitosDTOMapper federico() { //configurarMapperAnimalitosDTO() {
         return Mappers.getMapper(AnimalitosDTOMapper.class);

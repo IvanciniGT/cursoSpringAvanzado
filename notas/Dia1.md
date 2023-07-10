@@ -540,6 +540,7 @@ Cómo marcamos habitualmente una versión de software:
 
                 Incrementan?
     Major 1     Breaking changes
+                    // Quitar algo que estaba como deprecated
     Minor 2     Añadimos funcionalidad
                 Marcamos una funcionalidad como deprecated
                     + arreglos de bugs

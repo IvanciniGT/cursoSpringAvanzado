@@ -4,18 +4,8 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.curso.animalitos</groupId>
-    <artifactId>animalitos-servicio</artifactId>
+    <artifactId>animalitos-servicio-rest</artifactId>
     <version>1.0.0</version>
-    <!-- Este se debería cambiar automaticamente por:
-     - Git hook (Si git es quien controla las versiones... que las controle)
-        Quiero una única fuente de verdad en el proyecto (TAGs) v1.0.0
-        Git irá generando versiones por ramas:
-            1.0.0-dev
-            1.0.0-rc1
-            1.0.0-rc2
-            1.0.0
-      - Otro al que se suele delegar este trabajo es a Jenkins
-    -->
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -27,12 +17,7 @@
 
         <dependency>
             <groupId>com.curso.animalitos</groupId>
-            <artifactId>animalitos-entidades</artifactId>
-            <version>1.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>com.curso.animalitos</groupId>
-            <artifactId>emails-servicio</artifactId>
+            <artifactId>animalitos-servicio</artifactId>
             <version>1.0.0</version>
         </dependency>
         <!-- Spring Core + MVC para montar apps web (incluyendo servicios web) + un Tomcat embebido -->
@@ -41,12 +26,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
             <version>2.5.4</version>
         </dependency>
-        <!-- Me incluye hibernate y me permite gestionar la persistencia -->
+        <!-- Me incluye hibernate y me permite gestionar la persistencia
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <version>2.5.4</version>
-        </dependency>
+        </dependency>-->
         <!-- Me incluye junit, mockito, y el propio framework de pruebas de spring -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -61,7 +46,7 @@
             <version>1.18.26</version>
             <scope>compile</scope>
         </dependency>
-        <!-- Mapeos automáticos entre DTOs y Entidades -->
+        <!-- Mapeos automáticos entre DTOs y DTOs de la capa del servicio -->
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>

@@ -3,7 +3,10 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$/animalitos.entidades/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/animalitos.entidades/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/animalitos.servicio.rest/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/animalitos.servicio.rest/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/animalitos.servicio/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/animalitos.servicio/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/animalitos.servicio/src/test/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/emails.servicio/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/emails.servicio/src/main/resources" charset="UTF-8" />
