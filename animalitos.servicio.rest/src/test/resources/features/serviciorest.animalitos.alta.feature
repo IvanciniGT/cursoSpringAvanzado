@@ -50,11 +50,11 @@ Característica: Servicio REST de Alta de animalitos v1
         Entonces se recibe una respuesta con código de respuesta "BAD REQUEST"
             Y la respuesta debe estar vacía.
 
-    Escenario: Dar de alta un animalito sin edad, que es obligatorio
+    Escenario: Dar de alta un animalito sin color, que es obligatorio
         Dado un objeto JSON,
             Y ese objeto json tiene por "nombre": "Pepito"
-            Y ese objeto json tiene por "tipo": "perro"
-            Y ese objeto json tiene por "color": "marrón"
+            Y ese objeto json tiene por "edad": 3
+            Y ese objeto json tiene por "tipo": "chimpace"
         Cuando hacemos una petición por método "post" al servicio "/api/v1/animalitos", enviando el objeto JSON,
         Entonces se recibe una respuesta con código de respuesta "BAD REQUEST"
             Y la respuesta debe estar vacía.
