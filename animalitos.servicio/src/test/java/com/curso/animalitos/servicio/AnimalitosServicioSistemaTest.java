@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import com.curso.animalitos.entidades.RepositorioAnimalitos;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Optional;
 
@@ -27,6 +28,7 @@ public class AnimalitosServicioSistemaTest {
     }
 
     @Test
+    @Transactional
     public void altaAnimalitoConDatosOK(){
         // Preparacion de los datos
         DatosNuevoAnimalitoDTO nuevosDatos = new DatosNuevoAnimalitoDTO();

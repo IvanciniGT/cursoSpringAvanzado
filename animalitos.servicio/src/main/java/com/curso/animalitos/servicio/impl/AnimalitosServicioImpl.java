@@ -43,13 +43,14 @@ public class AnimalitosServicioImpl implements AnimalitosServicio {
                 "Amigo, tenemos un nuevo animalito en la tienda: "+ datosNuevoAnimalitoDTO.getNombre()+". Es muy mono. vente a por él");
 
         // Devolveré el resultado (DatosAnimalitoDTO)
-        DatosAnimalitoDTO datosAnimalitoDTO = AnimalitosMapper.animalito2DatosAnimalito(nuevoAnimalitoPersistido);
-        return datosAnimalitoDTO;
+        return AnimalitosMapper.animalito2DatosAnimalito(nuevoAnimalitoPersistido);
     }
 
 
     @Override
     public Optional<DatosAnimalitoDTO> recuperarAnimalito(Long id) {
-        return null;
+        return
+                repositorioAnimalitos.findById(id)
+                .map(AnimalitosMapper::animalito2DatosAnimalito);
     }
 }

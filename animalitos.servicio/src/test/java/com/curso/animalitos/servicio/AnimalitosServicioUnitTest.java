@@ -4,22 +4,16 @@ import com.curso.animalitos.entidades.Animalito;
 import com.curso.animalitos.entidades.RepositorioAnimalitos;
 import com.curso.animalitos.servicio.dtos.DatosAnimalitoDTO;
 import com.curso.animalitos.servicio.dtos.DatosNuevoAnimalitoDTO;
-import com.curso.animalitos.servicio.impl.AnimalitosServicioImpl;
 import com.curso.animalitos.servicio.testdoubles.EmailsServicioMock;
-import com.curso.animalitos.servicio.testdoubles.EmailsServicioSpy;
 import com.curso.emails.servicio.EmailsServicio;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.InjectMocks;
-import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.junit.jupiter.SpringExtension;
 
 import java.util.Optional;
 
@@ -38,9 +32,8 @@ public class AnimalitosServicioUnitTest {
     // Montar un fake - Sin ayuda de Mockito
     // Montar un Stub - Con mockito (aunque mockito... le llamará Mock... pero en realidad será un Stub)
 
-    @Mock
+    @MockBean
     private RepositorioAnimalitos repositorioDeAnimalitosMock ;
-    @InjectMocks
     private final AnimalitosServicio servicioDeAnimalitos;
     private final EmailsServicio emailsServicio;
 
@@ -117,6 +110,9 @@ public class AnimalitosServicioUnitTest {
         nuevosDatos.setTipo("Perro");
         nuevosDatos.setColor("Marrón");
         nuevosDatos.setEdad(3);
+        when(repositorioDeAnimalitosMock.save(any(Animalito.class))).thenThrow(
+                new RuntimeException("No se puede guardar un animalito sin nombre")
+        ) ;
         Assertions.assertThrows( Exception.class,  () ->  servicioDeAnimalitos.altaAnimalito(nuevosDatos));
     }
     @Test
@@ -126,20 +122,26 @@ public class AnimalitosServicioUnitTest {
         miAnimalito.setTipo("Perro");
         miAnimalito.setColor("Marrón");
         miAnimalito.setEdad(3);
-        Animalito animalitoExistente = repositorioDeAnimalitosMock.save(miAnimalito);
+        miAnimalito.setId(1234L);
         // ^ Me aseguro que tengo un animalito en el repo
         // v Trato de recuperar el animalito
-        Optional<DatosAnimalitoDTO> animalitoRecuperado = servicioDeAnimalitos.recuperarAnimalito(animalitoExistente.getId());
+        when(repositorioDeAnimalitosMock.findById(miAnimalito.getId())).thenReturn(
+                Optional.of(miAnimalito)
+        );
+        Optional<DatosAnimalitoDTO> animalitoRecuperado = servicioDeAnimalitos.recuperarAnimalito(miAnimalito.getId());
         // Me aseguro que he sido capaz de recuperarlo con todos sus datos OK
         Assertions.assertTrue(animalitoRecuperado.isPresent());
-        Assertions.assertEquals(animalitoExistente.getId(), animalitoRecuperado.get().getId());
-        Assertions.assertEquals(animalitoExistente.getNombre(), animalitoRecuperado.get().getNombre());
-        Assertions.assertEquals(animalitoExistente.getTipo(), animalitoRecuperado.get().getTipo());
-        Assertions.assertEquals(animalitoExistente.getColor(), animalitoRecuperado.get().getColor());
-        Assertions.assertEquals(animalitoExistente.getEdad(), animalitoRecuperado.get().getEdad());
+        Assertions.assertEquals(miAnimalito.getId(), animalitoRecuperado.get().getId());
+        Assertions.assertEquals(miAnimalito.getNombre(), animalitoRecuperado.get().getNombre());
+        Assertions.assertEquals(miAnimalito.getTipo(), animalitoRecuperado.get().getTipo());
+        Assertions.assertEquals(miAnimalito.getColor(), animalitoRecuperado.get().getColor());
+        Assertions.assertEquals(miAnimalito.getEdad(), animalitoRecuperado.get().getEdad());
     }
     @Test
     public void recuperarAnimalitoQueNoExiste(){
+        // v Trato de recuperar el animalito
+        when(repositorioDeAnimalitosMock.findById(-1000L)).thenReturn(
+                Optional.empty());
         Optional<DatosAnimalitoDTO> animalitoRecuperado = servicioDeAnimalitos.recuperarAnimalito(-1000L);
         // Me aseguro que he sido capaz de recuperarlo con todos sus datos OK
         Assertions.assertFalse(animalitoRecuperado.isPresent());

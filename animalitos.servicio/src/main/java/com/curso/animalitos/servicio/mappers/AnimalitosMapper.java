@@ -2,7 +2,6 @@ package com.curso.animalitos.servicio.mappers;
 
 import com.curso.animalitos.entidades.Animalito;
 import com.curso.animalitos.servicio.dtos.DatosAnimalitoDTO;
-import com.curso.animalitos.servicio.dtos.DatosNuevoAnimalitoDTO;
 
 public class AnimalitosMapper {
     public static DatosAnimalitoDTO animalito2DatosAnimalito(Animalito nuevoAnimalitoPersistido) {
